@@ -1,5 +1,5 @@
-import { Filter } from "../filter/filter.model";
+import { FilterState } from "./filter.state";
 
 export interface AppState {
-  filters: ReadonlyArray<Filter>;
+  filters: FilterState;
 }

@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { filtersReducer } from './state/filter/filter.reducer';
 import { AppState } from './state/app.state';
+import { FilterModule } from './filter/filter.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AppState } from './state/app.state';
     AppRoutingModule,
     BrowserAnimationsModule,
     StoreModule.forRoot<AppState>({ filters: filtersReducer }),
+    FilterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
