@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Filter } from './filter/filter.model';
+import { selectSelectedFilters } from './state/filter/filter.selectors';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend-droit';
+  public title = 'frontend-droit';
+
+  public selectedFilters$: Observable<ReadonlyArray<Filter>>
+
+  public constructor(
+    private _store: Store,
+  ) {
+    this.selectedFilters$ = this._store.select(selectSelectedFilters);
+  }
 }

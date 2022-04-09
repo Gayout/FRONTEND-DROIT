@@ -1,0 +1,11 @@
+$hover-color: #e6e6e6;
+
+.filter-option {
+  display: block;
+  padding: 8px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $hover-color;
+  }
+}

@@ -1,1 +1,31 @@
-<p>filters works!</p>
+<div class=" filters">
+  <h1>Filtres</h1>
+
+  <h4>Client</h4>
+  <ng-container *ngFor="let filter of customerFilter$ | async; index as i; trackBy: trackByFn">
+    <ng-container *ngTemplateOutlet="filterTemp; context: { $implicit: filter }">
+    </ng-container>
+  </ng-container>
+
+  <h4>Droits</h4>
+  <ng-container *ngFor="let filter of droitFilter$ | async; index as i; trackBy: trackByFn">
+    <ng-container *ngTemplateOutlet="filterTemp; context: { $implicit: filter }">
+    </ng-container>
+  </ng-container>
+
+  <h4>Type de photo</h4>
+  <ng-container *ngFor="let filter of photoFilter$ | async; index as i; trackBy: trackByFn">
+    <ng-container *ngTemplateOutlet="filterTemp; context: { $implicit: filter }">
+    </ng-container>
+  </ng-container>
+</div>
+
+<ng-template #filterTemp let-filter>
+  <mat-checkbox #box class="filter-option"
+    [value]="filter.value"
+    (click)="selectFilter($event, box, filter)"
+    (change)="onSelectedFilter(filter)"
+  >
+    {{ filter.label }}
+  </mat-checkbox>
+</ng-template>

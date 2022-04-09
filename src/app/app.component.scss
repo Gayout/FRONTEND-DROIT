@@ -1,0 +1,19 @@
+$sidebar-width: 300px;
+
+$grid-gutter-width: 8px;
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc($sidebar-width - 2 * $grid-gutter-width);
+  padding: $grid-gutter-width;
+}
+
+
+.content {
+  margin-left: $sidebar-width;
+  height: 100vh;
+  background-color: red;
+}
